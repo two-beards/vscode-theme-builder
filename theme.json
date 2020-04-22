@@ -1,0 +1,11 @@
+{
+  "name": "{{ name }}",
+  "type": "light",
+  "colors": {
+    "activityBar.background": "{{ colors.lightGray }}",
+    "activityBar.border": "{{ colors.gray }}",
+    "activityBar.activeBackground": "{{ colors.lightGray }}",
+    "activityBar.activeBorder": "{{ colors.blue }}",
+    "activityBar.foreground": "{{ colors.blue }}"
+  }
+}

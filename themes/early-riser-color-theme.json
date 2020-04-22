@@ -1,0 +1,11 @@
+{
+  "name": "Early Riser",
+  "type": "light",
+  "colors": {
+    "activityBar.background": "#e7ebef",
+    "activityBar.border": "#8b99a7",
+    "activityBar.activeBackground": "#e7ebef",
+    "activityBar.activeBorder": "#0261dc",
+    "activityBar.foreground": "#0261dc"
+  }
+}
