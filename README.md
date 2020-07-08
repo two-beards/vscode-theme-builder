@@ -1,6 +1,6 @@
 # VS Code Theme Builder
 
-This is a starter template for building a VS Code theme with variables.
+This is a module for building a VS Code theme with variables and a config file.
 
 ⚠️ This is still a WIP ⚠️
 
@@ -9,6 +9,8 @@ This is a starter template for building a VS Code theme with variables.
 - [x] Make the config file builder actually work
 - [ ] Make package installable and executable via a node modules binary
 - [ ] Configuration/options API for interacting with the module
+  - [ ] Customize config file name/path (default to `theme.config.js`)
+  - [ ] Custom output file name/location
 
 ## Why?
 
@@ -18,7 +20,7 @@ It would be so great if JSON had variables, but since it doesn't... this was cre
 
 ## Usage
 
-_NB:_ This is only designed to work if your theme has a single theme. Some themes have light and dark, high contrast, etc. This will not work for those... yet (PRs welcome).
+The first iteration of this will focus on providing configs for single themes. We plan to handle multiple themes via config options.
 
 ### Creating the theme
 
