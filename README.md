@@ -6,7 +6,7 @@ This is a starter template for building a VS Code theme with variables.
 
 ## TODO
 
-- [ ] Make the config file builder actually work
+- [x] Make the config file builder actually work
 - [ ] Make package installable and executable via a node modules binary
 - [ ] Configuration/options API for interacting with the module
 
