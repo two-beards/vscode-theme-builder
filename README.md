@@ -4,6 +4,12 @@ This is a starter template for building a VS Code theme with variables.
 
 ⚠️ This is still a WIP ⚠️
 
+## TODO
+
+- [ ] Make the config file builder actually work
+- [ ] Make package installable and executable via a node modules binary
+- [ ] Configuration/options API for interacting with the module
+
 ## Why?
 
 Creating VS Code themes is fairly tedious. You're working in an enormous JSON file with tons of property declarations, and you're reusing the same set of colors all over the place. But let's say you decide to tweak a color slightly because you find out it doesn't pass WCAG Accessibility standards. You have to do a find and replace on all instances of that color, and there are a few situations where you can get into trouble doing that.
