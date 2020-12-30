@@ -1,5 +1,7 @@
-const replacer = require('./replacer')
+const { test } = require('uvu')
+const assert = require('uvu/assert')
 const config = require('./theme.config')
+const replacer = require('./replacer')(config)
 
 const theme = {
   "name": "{{ name }}",
@@ -14,8 +16,10 @@ const theme = {
 test('replaces variable interpolation in JSON files based on theme config', () => {
   const stringified = JSON.stringify(theme, replacer)
   const parsed = JSON.parse(stringified)
-  expect(parsed.name).toBe(config.name)
-  expect(parsed.colors['background']).toBe(config.colors.lightGray)
-  expect(parsed.colors['border']).toBe(config.colors.gray)
-  expect(parsed.colors['foreground']).toBe(config.colors.blue)
+  assert.equal(parsed.name, config.name)
+  assert.equal(parsed.colors['background'], config.colors.lightGray)
+  assert.equal(parsed.colors['border'], config.colors.gray)
+  assert.equal(parsed.colors['foreground'], config.colors.blue)
 })
+
+test.run()

@@ -1,5 +1,6 @@
 module.exports = {
   name: 'Early Riser',
+  inputFile: 'theme.json',
   outputDir: 'themes',
   colors: {
     red: '#e20a00',

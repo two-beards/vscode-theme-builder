@@ -1,20 +1,35 @@
 {
-  "name": "vscode-theme-builder",
-  "version": "1.0.0",
-  "description": "Starter template for generating a VS Code theme using variables",
-  "main": "theme.config.js",
-  "scripts": {
-    "build": "node build.js",
-    "test": "jest"
-  },
-  "keywords": [],
-  "author": "mikemcbride",
-  "license": "ISC",
-  "dependencies": {
-    "kleur": "^3.0.3",
-    "lodash": "^4.17.19"
-  },
-  "devDependencies": {
-    "jest": "^25.4.0"
-  }
+    "name": "vs-code-theme-builder",
+    "version": "1.0.0",
+    "description": "Starter template for generating a VS Code theme using variables",
+    "bin": {
+        "build-theme": "./cli.js"
+    },
+    "engines": {
+        "node": ">=12"
+    },
+    "scripts": {
+        "test": "uvu"
+    },
+    "files": [
+        "cli.js",
+        "build.js",
+        "replacer.js"
+    ],
+    "keywords": [
+        "vscode",
+        "theme",
+        "template",
+        "variables"
+    ],
+    "author": "mikemcbride",
+    "license": "ISC",
+    "dependencies": {
+        "kleur": "^3.0.3",
+        "lodash": "^4.17.19",
+        "meow": "^8.1.0"
+    },
+    "devDependencies": {
+        "uvu": "^0.5.1"
+    }
 }
