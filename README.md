@@ -13,8 +13,8 @@ It would be so great if JSON had variables, but since it doesn't... this was cre
 You can install the library as a dependency using Yarn or npm:
 
 ```sh
-npm install --save-dev vs-code-theme-builder
-# or yarn add --dev vs-code-theme-builder
+npm install --save-dev @two-beards/vscode-theme-builder
+# or yarn add --dev @two-beards/vscode-theme-builder
 ```
 
 ## Usage
