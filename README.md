@@ -19,7 +19,7 @@ npm install --save-dev @two-beards/vscode-theme-builder
 
 ## Usage
 
-The library exports a binary (`build-theme`) that can be executed via an npm script. Typical usage would look something like this:
+The library exports a binary (`build-theme`) that can be executed via an npm script. Typical usage would look something like this in your `package.json`:
 
 ```json
 {
@@ -45,7 +45,7 @@ When the script runs, it will take an input file (your theme with variables), pa
 
 ## Creating the theme
 
-You can define values in the `theme.config.js` file (or whatever file you want, if you pass the file name in the build script). Values will be read from the config file when building the theme. For example, if you have a value `"red": "#f00"`, all instances of `{{ red }}` in your theme will be replaced with `#f00`.
+You can define values in your config file. Values will be read from the config file when building the theme. For example, if you have a value `"red": "#f00"`, all instances of `{{ red }}` in your theme will be replaced with `#f00`.
 
 ### Configuration Options
 
@@ -56,7 +56,7 @@ You can define values in the `theme.config.js` file (or whatever file you want, 
 | `outputDir` | `false` | `themes` | The directory that your compiled theme file will be placed. | `"themes"` |
 | `outputFileName` | `false` | The `name` field, kebab-cased, plus `-color-theme.json`. | The final file name for the theme. We ensure it gets the `.json` extension if you forget it. | `"early-riser-color-theme.json"` |
 
-The rest of the config file you can structure however makes the most sense to you. When you write your theme, you can use an interpolation syntax to inject variables from your config file. If you take a look at the `theme.config.js` file in this repo, your theme file might look like this:
+The rest of the config file you can structure however makes the most sense to you. When you write your theme, you can use an interpolation syntax to inject variables from your config file. If you take a look at the [`theme.config.js`](https://github.com/two-beards/vscode-theme-builder/blob/master/theme.config.js) file in this repo, your theme file might look like this:
 
 ```json
 {
@@ -74,4 +74,24 @@ The goal here is that it is super easy to change variables in a single place, an
 
 ### Multiple Themes
 
-Some themes have multiple themes within them. Some examples would be a high contrast theme in addition to the normal one. Another example would be something like the Material suite of themes, which contain 3 or 4 different color schemes that you can choose from in one theme. In these situations, it would be nice to be able to build multiple themes in one go. We totally support that too - instead of exporting an object in `theme.config.js`, you can export an array of config objects and each one will be processed.
+Some extensions have multiple themes within them. Examples would be a high contrast theme in addition to the normal one, or something like the Material suite of themes, which contain 3 or 4 different color schemes that you can choose from in one extension. In these situations, it would be nice to be able to build multiple themes in one go. We totally support that too - instead of exporting an object in `theme.config.js`, you can export an array of config objects and each one will be processed individually.
+
+### Building and Publishing
+
+You'll want to make sure you build your theme before you publish it. You might want to set up a `publish` script in your `package.json` that runs the build and then runs `vsce publish` so you make sure it's updated before publishing.
+
+The other thing you'll want to consider with this is adding some files to your `.vscodeignore`. If your theme was previously just a JSON file, bringing in this library will add `node_modules` and a bunch of extra JavaScript files that we're using under the hood. Once you build your theme, all you need is the built theme file, so you'll likely get a warning that you're publishing a lot of files. We suggest adding something like this to your `.vscodeignore` (you likely already have one with a few things in it):
+
+```
+node_modules/**
+theme.config.js
+```
+
+You'll also want to ignore the path to your un-built theme file (the one with all the variables in it). You can check out the examples below to see how they're set up.
+
+## Examples
+
+You can check out some of the packages below for real-world examples using this library:
+
+- [Early Riser Theme](https://github.com/mikemcbride/vscode-early-riser.git)
+- [Electron Highlighter Theme](https://github.com/mikemcbride/vscode-electron-highlighter.git)
